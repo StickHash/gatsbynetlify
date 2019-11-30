@@ -7,10 +7,11 @@ class Post extends Component {
     const post = this.props.data.wordpressPost
 
     return (
-      <>
+      <div>
         <h1 dangerouslySetInnerHTML={{ __html: post.title }}/>
+        <p><img src={post.featured_media.link} alt={post.featured_media.description}/></p>
         <div dangerouslySetInnerHTML={{ __html: post.content }}/>
-      </>
+      </div>
     )
   }
 }
@@ -27,6 +28,10 @@ export const postQuery = graphql`
     wordpressPost(id: { eq: $id }) {
       title
       content
+      featured_media {
+        link
+        description
+      }
     }
     site {
       siteMetadata {
