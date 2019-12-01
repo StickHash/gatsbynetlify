@@ -620,3 +620,11 @@ pre tt:after {
     font-size: 100%;
   }
 }
+.post-img{
+  width:100%;
+  height: auto;
+}
+.article-img{
+  width:50%;
+  height: auto;
+}
