@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { graphql } from "gatsby"
 import PropTypes from "prop-types"
 import Layout from "../components/layout"
+import ReactHtmlParser from 'react-html-parser';
 
 class Post extends Component {
   render() {
@@ -10,9 +11,9 @@ class Post extends Component {
     return (
       <Layout>
         <div>
-          <h1 dangerouslySetInnerHTML={{ __html: post.title }} />
+          <h1>{ReactHtmlParser(post.title)}</h1>
           <p><img class="post-img" src={post.featured_media.link} alt={post.featured_media.description} /></p>
-          <div dangerouslySetInnerHTML={{ __html: post.content }} />
+          <div>{ReactHtmlParser(post.content)}</div>
         </div>
       </Layout>
     )

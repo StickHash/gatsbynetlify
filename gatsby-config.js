@@ -1,7 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Mon nouveau site avec Gatsby`,
-    description: `Le début de quelques chose.`,
+    title: `Christophe Belbeoch`,
+    subtitle: `Parcours Pro et Projet Dev`,
+    description: `Parcours Pro et Projet Dev`,
     author: `@StickHash`,
   },
   plugins: [
@@ -11,6 +12,13 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `downloads`,
+        path: `${__dirname}/src/files`,
       },
     },
     `gatsby-transformer-sharp`,

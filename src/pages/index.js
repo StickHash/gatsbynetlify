@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
+import ReactHtmlParser from 'react-html-parser';
 
 class Homepage extends Component {
   render() {
@@ -8,14 +9,14 @@ class Homepage extends Component {
 
     return (
       <Layout>
-        <h1>Posts</h1>
+        <h2>Posts</h2>
         {data.allWordpressPost.edges.map(({ node }) => (
           <article key={node.slug}>
             <Link to={node.slug}>
-              <h2 dangerouslySetInnerHTML={{ __html: node.title }} />
+              <h3>{ReactHtmlParser(node.title)}</h3>
             </Link>
             <p><img class="article-img" src={node.featured_media.link} alt={node.featured_media.description} /></p>
-            <strong dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+            <strong>{ReactHtmlParser(node.excerpt)}</strong>
           </article>
         ))}
       </Layout>
